@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/prweb/PRRestService/monitor/pingservice/ping/unhealthy"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "node_type": [
+        "Stream"
+      ],
+      "health": [
+        {
+          "last_reported_time": "2021-10-05T11:53:32.904Z",
+          "test_name": "HTML-Stream-Check",
+          "status": "failure"
+        },
+        {
+          "last_reported_time": "2021-10-05T11:53:32.904Z",
+          "test_name": "Streamservice-Check",
+          "status": "success"
+        },
+        {
+          "last_reported_time": "2021-10-05T11:53:32.904Z",
+          "test_name": "StaleThreadHealthCheck",
+          "status": "success"
+        },
+        {
+          "last_reported_time": "2021-10-05T11:53:32.904Z",
+          "message": "NORMAL",
+          "test_name": "DSMService:StreamServer.Default-Check",
+          "status": "success"
+        },
+        {
+          "last_reported_time": "2021-10-05T11:53:32.904Z",
+          "test_name": "ServiceRegistry-Check",
+          "status": "failure"
+        }
+      ],
+      "state": "unhealthy",
+      "node_id": "tmcmktuat10"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

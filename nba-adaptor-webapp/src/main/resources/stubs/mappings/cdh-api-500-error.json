@@ -1,0 +1,18 @@
+{
+  "priority": 4,
+  "request": {
+    "method": "POST",
+    "urlPath": "/customer_reco",
+    "bodyPatterns" : [ {
+      "matchesJsonPath": "$[?(@.CustomerID == '578138689')]"
+    } ]
+  },
+  "response": {
+    "status": 500,
+    "jsonBody": {
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

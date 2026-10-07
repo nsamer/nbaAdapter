@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="json-access" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.AccessEventCompositeJsonEncoder">
+            <providers>
+                <pattern>
+                    <pattern>
+                        {
+                        "timestamp":"%date{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}",
+                        "message":"combined",
+                        "service.name":"${ECS_SERVICE_NAME:-nba-adaptor}",
+                        "event.dataset": "${ECS_SERVICE_NAME:-nba-adaptor}-access-log",
+                        "event.duration":"#asLong{%elapsedTime}",
+
+                        "source.ip":"%remoteIP",
+                        "dest.ip":"%localIP",
+
+                        "user_agent.original":"%header{User-agent}",
+
+                        "http.request.method":"%requestMethod",
+                        "http.request.referrer":"%header{Referer}",
+                        "http.response.bytes":"#asLong{%bytesSent}",
+                        "http.response.status_code":"#asLong{%statusCode}",
+
+                        "url.username":"%user",
+                        "url.domain":"%server",
+                        "url.path":"%requestURI"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <springProfile name="!local">
+        <appender-ref ref="json-access"/>
+    </springProfile>
+</configuration>

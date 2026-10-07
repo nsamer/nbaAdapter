@@ -1,0 +1,75 @@
+variables:
+  PROJECT: tribe-css
+  PROJECT_TITLE: "digitalchannel-nba-adaptor"
+  DOCKERFILE_PATH: $CI_PROJECT_DIR/src/main/docker/Dockerfile
+  MAVEN_BUILD_BASE_IMAGE: $CI_HARBOR_REGISTRY/build-images/build-jdk21:latest
+  MAVEN_CLI: "./mvnw"
+
+include:
+  - project: telenetgroup/common/pipeline/templates
+    file:
+      - .gitlab-ci-base.yml
+    ref: "3"
+
+get-version:
+  extends: .get-version-base
+
+maven-build:
+  extends: .maven-build-base
+
+sonarqube-check:
+  extends: .sonarqube-check-base
+
+publish-docker-image:
+  extends: .publish-docker-image-base
+
+.deploy-oke-base:
+  trigger:
+    include:
+      - project: telenetgroup/common/pipeline/templates
+        ref: "3"
+        file: '.gitlab-pipeline-gitops-private-cloud-oke.yml'
+    strategy: depend
+    forward:
+      pipeline_variables: true
+  variables:
+    PROJECT: pega-cdh
+    CI_PROJECT_PATH: telenetgroup/css/css-backend/next-best-action/pega-cdh-gitops
+    GITOPS_DEPLOY_FOLDER_NAME: "deploy/digitalchannel-nba-adaptor/overlays/${ENV}"
+
+deploy-dvp:
+  extends: .deploy-oke-base
+  stage: deploy by dev squad
+  variables:
+    ENV: dvp
+    FLUX_RECONCILE_KUSTOMIZATIONS: "nba-adaptor-dvp"
+  when: on_success
+  needs:
+    - get-version
+    - publish-docker-image
+
+deploy-uat:
+  extends: .deploy-oke-base
+  stage: deploy by operators
+  variables:
+    ENV: uat
+    FLUX_RECONCILE_KUSTOMIZATIONS: "nba-adaptor-uat"
+  when: manual
+  needs:
+    - get-version
+    - publish-docker-image
+
+deploy-prd:
+  extends: .deploy-oke-base
+  stage: deploy by operators
+  variables:
+    ENV: prd
+    FLUX_RECONCILE_KUSTOMIZATIONS: "nba-adaptor-prd"
+  when: manual
+  needs:
+    - get-version
+    - publish-docker-image
+
+3-prd-digitalchannel:
+  extends: .deploy-prd-base
+  stage: deploy by dev squad

@@ -1,0 +1,50 @@
+### NEVER IGNORE ###
+!**/src/main/**
+!**/src/test/**
+
+### MAVEN ###
+!.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+### LOG FILES & PROPERTIES ###
+release.properties
+*.log
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+target/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### MacOS ###
+.DS_Store
+
+### JENV Configuration to switch JDK versions on MacOS ###
+.java-version
+/.java-version

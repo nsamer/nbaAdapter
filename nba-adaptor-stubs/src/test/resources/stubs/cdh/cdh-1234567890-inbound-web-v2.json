@@ -1,0 +1,204 @@
+{
+  "priority": 3,
+  "request": {
+    "method": "POST",
+    "urlPath": "/",
+    "bodyPatterns": [
+      {
+        "equalToJson": {
+          "ContainerName": "GetNBA",
+          "Channel": "Web",
+          "CustomerID": "1234567890",
+          "Direction": "Inbound",
+          "ExternalID": "eid",
+          "Language": "nl",
+          "ContextName": "Customer",
+          "Contexts": [
+            {
+              "Type": "String",
+              "Value": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-tv,/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-mob",
+              "Key": "ContainerFragments"
+            },
+            {
+              "Type": "String",
+              "Value": "/Telenet/main/c5",
+              "Key": "TouchPoint"
+            }
+          ]
+        },
+        "ignoreArrayOrder": true,
+        "ignoreExtraElements": true
+      }
+    ]
+  },
+  "response": {
+    "jsonBody": {
+      "Status": "OK",
+      "ContainerList": [
+        {
+          "Status": "OK",
+          "ContainerName": "GetNBA",
+          "RankedResults": [
+            {
+              "Group": "Sales",
+              "Issue": "Migration",
+              "InteractionID": -5826878382873476000,
+              "Category": "",
+              "CustomerCost": 0,
+              "ContentFormat": "",
+              "Label": "SAMI_ONEfor5iconic",
+              "PaidLookalikeValue": "",
+              "Benefits": "Wigo with unlimitted calling and 9 GB data with much more flexibility",
+              "WhyRelevant": "This is more relevant to your usage patterns",
+              "Direction": "Inbound",
+              "Name": "SAMI_ONEfor5iconic",
+              "ShortDescription": "One Unlimited internet product for 5 and the Iconic TV",
+              "PaidAudienceName": "",
+              "Identifier": "/Sales/Migration/SAMI_ONEfor5iconic",
+              "Placement": "",
+              "Pricing": "",
+              "Journey": "",
+              "JourneyStage": "",
+              "JourneyStep": "",
+              "EligibilityDescription": "Holder of a Wigo 3GB Bundle",
+              "Propensity": 0.76,
+              "AgentCompensation": 50,
+              "ClassIdentifier": "Offer",
+              "Priority": 0.76,
+              "Channel": "Web",
+              "BundleName": "",
+              "PromoIDs": "",
+              "ImageURL": "",
+              "Rank": 1,
+              "BundleParent": "",
+              "Variant": "",
+              "Treatment": "OneXsellMig_Web_General_SA",
+              "InternalCost": 0,
+              "CampaignID": "NBA",
+              "OfferValue": 0,
+              "ClickThroughURL": "",
+              "DecisionTime": "20220907T204115.384 GMT",
+              "ProductID": "{\"offers\": [{\"id\": \"42797\",\"type\": \"Product\",\"offers\": []}]}",
+              "OfferDetails": [
+                {
+                  "Name": "Mobile5",
+                  "Treatment": "OneXsellMig_Web_General_SA",
+                  "TreatmentFragments": [
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11509",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-mob",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    }
+                  ]
+                },
+                {
+                  "Name": "One",
+                  "Treatment": "OneXsellMig_Web_General_SA",
+                  "TreatmentFragments": [
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11508",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-bb",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    }
+                  ]
+                },
+                {
+                  "Name": "IconicTV",
+                  "Treatment": "OneXsellMig_Web_General_SA",
+                  "TreatmentFragments": [
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11507",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-tv",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    },
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11507",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-tv",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    }
+                  ]
+                },
+                {
+                  "Name": "ONE_OC3",
+                  "Treatment": "OneXsellMig_Web_General_SA",
+                  "TreatmentFragments": [
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11500",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-sa",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Group": "CostToServe",
+              "Issue": "Education",
+              "InteractionID": -5826878382873476000,
+              "Category": "",
+              "CustomerCost": 0,
+              "ContentFormat": "",
+              "Label": "DiscoverOneApp",
+              "PaidLookalikeValue": "",
+              "Benefits": "Wigo with unlimitted calling and 9 GB data with much more flexibility",
+              "WhyRelevant": "This is more relevant to your usage patterns",
+              "Direction": "Inbound",
+              "Name": "DiscoverOneApp",
+              "ShortDescription": "One App product",
+              "PaidAudienceName": "",
+              "Identifier": "/Sales/Migration/SAMI_WIGOS_9GB",
+              "Placement": "",
+              "Pricing": "",
+              "Journey": "",
+              "JourneyStage": "",
+              "JourneyStep": "",
+              "ServiceCaseID": "",
+              "EligibilityDescription": "Holder of a Wigo 3GB Bundle",
+              "Propensity": 0.76,
+              "AgentCompensation": 50,
+              "ClassIdentifier": "Offer",
+              "Priority": 0.76,
+              "Channel": "Web",
+              "BundleName": "",
+              "ImageURL": "",
+              "Rank": 2,
+              "BundleParent": "false",
+              "Variant": "",
+              "Treatment": "OneAppPush_Web_General",
+              "InternalCost": 0,
+              "CampaignID": "NBA",
+              "OfferValue": 0,
+              "ClickThroughURL": "",
+              "DecisionTime": "20220907T135250.344 GMT",
+              "ProductID": "{\"offers\": [{\"id\": \"42797\",\"type\": \"Product\",\"offers\": []}]}",
+              "PromoIDs": "",
+              "OfferDetails": [
+                {
+                  "Name": "DiscoverOneApp",
+                  "Treatment": "OneAppPush_Web_General",
+                  "TreatmentFragments": [
+                    {
+                      "TreatmentFragment": "/content/dam/pega/treatment-fragments/telenet/web/tf_11517",
+                      "ContainerFragment": "/content/dam/pega/container-fragments/telenet/nbo/productsummary-specification-oa",
+                      "ContentFragment": "/content/dam/pega/content-fragments/telenet/nl/content-fragment-product",
+                      "ExperienceTemplate": "/content/experience-fragments/www-telenet-touch/pega/experience-templates/pega-test-experience-fragment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "status": 200
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/customer_reco",
+    "bodyPatterns" : [
+      {
+        "equalToJson" : {"ContainerName":"GetNBA","Channel":"FixitAdvisorTool","CustomerID":"929149660","Direction":"Inbound"},
+        "ignoreArrayOrder" : true,
+        "ignoreExtraElements" : true
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "Status":"OK",
+      "ContainerList": [
+        {
+          "Status": "OK",
+          "ContainerName": "GetNBA",
+          "RankedResults": [{
+            "Channel":"FixitAdvisorTool",
+            "Group":"XSELL",
+            "Issue":"COSTTOSERVE",
+            "InteractionID":"3944968229930172786",
+            "Direction":"Inbound",
+            "Name":"Connect 5 Fast Telefonie",
+            "Rank":1,
+            "Treatment":"OneAppPush_Fixit_ContactBilling",
+            "SellingArguments": "C5_SAF1|C5_SAF2",
+            "CampaignID": "campaign-promo-id"
+          }]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

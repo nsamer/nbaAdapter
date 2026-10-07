@@ -1,0 +1,35 @@
+{
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPath": "/customer_reco"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "Status":"OK",
+      "ContainerList": [
+        {
+          "Status": "OK",
+          "ContainerName": "GetNBA",
+          "RankedResults": [            {
+            "Channel":"FixitAdvisorTool",
+            "Group":"XSELL",
+            "Issue":"SALES",
+            "InteractionID":"3944968229930172786",
+            "Direction":"Inbound",
+            "Name":"SAMI_WIGO_35GB_PP",
+            "Rank":1,
+            "Treatment":"SAMI_WIGO_35GB_PP",
+            "SellingArguments": "selling.argument.key.1|selling.argument.key.2",
+            "CampaignID": "campaign-promo-id",
+            "ProductID": "{\"offers\": [{\"id\": \"mobile\",\"offers\": [{\"id\": \"option-123\",\"type\": \"Option\"},{\"id\": \"option-123\",\"type\": \"Option\"},{\"id\": \"optin-123\",\"type\": \"Opt-in\"},{\"id\": \"smartphone-123\",\"type\": \"smartphone\"}],\"type\": \"Product\"}]}"
+          }]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

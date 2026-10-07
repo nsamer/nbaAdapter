@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.9</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>be.telenet.css.nextbestaction.adaptor</groupId>
+    <artifactId>nba-adaptor</artifactId>
+    <version>1.3.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>NBA Adaptor</name>
+    <description>NBA Adaptor for multi channels</description>
+
+    <properties>
+        <java.version>21</java.version>
+
+        <integration.header.version>3.0.2230668110</integration.header.version>
+
+        <spring-cloud-contract.version>4.3.1</spring-cloud-contract.version>
+        <springdoc.version>2.8.14</springdoc.version>
+        <commons.collections.version>4.5.0</commons.collections.version>
+        <messagepack.version>0.9.10</messagepack.version>
+        <tukaani.xz.version>1.11</tukaani.xz.version>
+
+        <logback-access-spring-boot-starter.version>4.7.0</logback-access-spring-boot-starter.version>
+        <logback-access.version>2.0.6</logback-access.version><!-- align with version in logback-access-spring-boot-starter -->
+        <ecs-logging-java.version>1.7.0</ecs-logging-java.version>
+        <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
+
+        <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
+
+        <sonar.projectName>NBA Adaptor for multi channels</sonar.projectName>
+        <sonar.coverage.exclusions>
+            **/*Config*.java,
+            **/*Application.java,
+            **/ServletInitializer.java
+        </sonar.coverage.exclusions>
+        <!--suppress UnresolvedMavenProperty -->
+        <sonar.coverage.jacoco.xmlReportPaths>${maven.multiModuleProjectDirectory}/nba-adaptor-coverage-report/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.language>java</sonar.language>
+    </properties>
+
+    <scm>
+        <connection>scm:git:ssh:/git@gitlab.com:telenetgroup/css/css-backend/next-best-action/nba-adaptor.git</connection>
+        <developerConnection>scm:git:ssh:/git@gitlab.com:telenetgroup/css/css-backend/next-best-action/nba-adaptor.git</developerConnection>
+    </scm>
+
+    <modules>
+        <module>nba-adaptor-common</module>
+        <module>nba-adaptor-webapp</module>
+        <module>nba-adaptor-integration-tests</module>
+        <module>nba-adaptor-resources</module>
+        <module>nba-adaptor-stubs</module>
+        <module>nba-adaptor-coverage-report</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>be.telenet.css.nextbestaction.adaptor</groupId>
+                <artifactId>nba-adaptor-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.telenet.css.nextbestaction.adaptor</groupId>
+                <artifactId>nba-adaptor-resources</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.telenet.css.nextbestaction.adaptor</groupId>
+                <artifactId>nba-adaptor-webapp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.telenet.css.nextbestaction.adaptor</groupId>
+                <artifactId>nba-adaptor-stubs</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+            </dependency>
+            <dependency>
+                <groupId>be.telenet.css.lib</groupId>
+                <artifactId>integration-header</artifactId>
+                <version>${integration.header.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-dependencies</artifactId>
+                <version>${spring-cloud-contract.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-wiremock</artifactId>
+                <version>${spring-cloud-contract.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.tukaani</groupId>
+                <artifactId>xz</artifactId>
+                <version>${tukaani.xz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.msgpack</groupId>
+                <artifactId>jackson-dataformat-msgpack</artifactId>
+                <version>${messagepack.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>co.elastic.logging</groupId>
+                <artifactId>logback-ecs-encoder</artifactId>
+                <version>${ecs-logging-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.akkinoc.spring.boot</groupId>
+                <artifactId>logback-access-spring-boot-starter</artifactId>
+                <version>${logback-access-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback.access</groupId>
+                <artifactId>logback-access-tomcat</artifactId>
+                <version>${logback-access.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>coverage</id>
+            <activation/>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco-maven-plugin.version}</version>
+                        <configuration>
+                            <append>true</append>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

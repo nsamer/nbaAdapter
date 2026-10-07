@@ -1,0 +1,40 @@
+{
+  "priority": 5,
+  "request": {
+    "method": "POST",
+    "urlPath": "/customer_reco",
+    "queryParameters": {
+      "mockNba": {
+        "equalTo": "94"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "Status":"OK",
+      "ContainerList": [
+        {
+          "Status": "OK",
+          "ContainerName": "GetNBA",
+          "RankedResults": [{
+            "Channel":"FixitAdvisorTool",
+            "Group":"XSELL",
+            "Issue":"SALES",
+            "InteractionID":"3944968229930172786",
+            "Direction":"Inbound",
+            "Name":"WIGO 60GB",
+            "Rank":1,
+            "Treatment":"WIGO 60GB",
+            "SellingArguments": "selling.argument.key.1|selling.argument.key.2",
+            "CampaignID": "campaign-promo-id",
+            "ProductID": "{\"offers\": [{\"id\": \"mobile\",\"offers\": [{\"id\": \"option-123\",\"type\": \"Option\"},{\"id\": \"option-123\",\"type\": \"Option\"},{\"id\": \"optin-123\",\"type\": \"Opt-in\"},{\"id\": \"smartphone-123\",\"type\": \"smartphone\"}],\"type\": \"Product\"}]}"
+          }]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
